@@ -8,7 +8,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({});
 const sess = {
   secret: 'Super secret secret',
   cookie: {
@@ -20,8 +20,8 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 // Parsing middleware
@@ -33,13 +33,13 @@ app.use(routes);
 app.use(session(sess));
 
 // Register Handlebars as the template engine
-app.engine('handlebars', handlebars.engine);
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 
 async function start() {
   await sequelize.sync({ force: false });
-  
+
   app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
   });
