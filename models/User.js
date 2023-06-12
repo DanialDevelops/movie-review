@@ -49,6 +49,7 @@ User.init(
             updatedUserData.password,
             10
           );
+          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         }
         return updatedUserData;
       },
