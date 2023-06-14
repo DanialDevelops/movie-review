@@ -23,7 +23,7 @@ Review.init(
         max: 5,
       },
     },
-    movie_id: {
+    imdb_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
