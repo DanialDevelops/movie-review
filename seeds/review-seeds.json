@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Sick movie!",
+    "rating": 5,
+    "imdb_id": 1,
+    "user_id": 1
+  },
+  {
+    "content": "Good movie!",
+    "rating": 4,
+    "imdb_id": 4,
+    "user_id": 2
+  },
+  {
+    "content": "Trash movie!",
+    "rating": 1,
+    "imdb_id": 5,
+    "user_id": 3
+  },
+  {
+    "content": "It was decent.",
+    "rating": 3,
+    "imdb_id": 2,
+    "user_id": 5
+  }
+]

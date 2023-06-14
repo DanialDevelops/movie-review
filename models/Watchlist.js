@@ -1,12 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Movie extends Model {}
+class Watchlist extends Model {}
 
-// Once we get the third-party Movie api, the schema will look like:
-// We no longer need this model once we get movie data from Mahdi's api.
-
-Movie.init(
+Watchlist.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -14,22 +11,18 @@ Movie.init(
       autoIncrement: true,
       allowNull: false,
     },
-    title: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    genre: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    release_year: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    rating: {
-      type: DataTypes.DECIMAL(3, 1),
+    imdb_id: {
+      // An id of a movie from the third-party movie API.
+      type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0,
     },
   },
   {
@@ -37,8 +30,8 @@ Movie.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'movie',
+    modelName: 'watchlist',
   }
 );
 
-module.exports = Movie;
+module.exports = Watchlist;

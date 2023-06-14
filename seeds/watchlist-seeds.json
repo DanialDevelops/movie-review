@@ -1,0 +1,37 @@
+[
+  {
+    "name": "My favourite movies",
+    "user_id": 1,
+    "imdb_id": 1
+  },
+  {
+    "name": "Cool films",
+    "user_id": 1,
+    "imdb_id": 2
+  },
+  {
+    "name": "my moviesssss",
+    "user_id": 2,
+    "imdb_id": 1
+  },
+  {
+    "name": "list of movies",
+    "user_id": 3,
+    "imdb_id": 1
+  },
+  {
+    "name": "Movies i like",
+    "user_id": 4,
+    "imdb_id": 2
+  },
+  {
+    "name": "good movies",
+    "user_id": 4,
+    "imdb_id": 5
+  },
+  {
+    "name": "IDK",
+    "user_id": 5,
+    "imdb_id": 1
+  }
+]
