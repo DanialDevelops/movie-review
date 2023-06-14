@@ -1,10 +1,18 @@
 const router = require('express').Router();
-const Review = require('../../models/Review.js');
+const { User, Review } = require('../../models/');
 
 // GET all reviews
 router.get('/', async (req, res) => {
   try {
-    const reviews = await Review.findAll();
+    const rawReviews = await Review.findAll({
+      include: {
+        model: User,
+        attributes: ['username'],
+      },
+    });
+    const reviews = await rawReviews.map((rawReview) => {
+      return rawReview.get({ plain: true });
+    });
     res.json(reviews);
   } catch (err) {
     console.error(err);
@@ -36,7 +44,7 @@ router.post('/', async (req, res) => {
   // {
   //  "content": "This movie was awesome!"
   //  "rating": 1,
-  //  "movie_id": 1,
+  //  "imdb_id": 1,
   //  "user_id": 1
   // }
   try {
