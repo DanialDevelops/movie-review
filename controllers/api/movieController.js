@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { getAllMovies, getMovie } = require('../../utils/moviesDb');
 const { User, Review } = require('../../models');
-const getAvgRating = require('../../utils/averageRating.js');
+const { getAvgRating } = require('../../utils/helpers.js');
 // - /api/movie
 
 // Search for a list of movies (10 max).
@@ -25,7 +25,6 @@ router.get('/search/:movie', async (req, res) => {
             model: User,
             attributes: ['id', 'username'],
           },
-          group: ['Review.id', 'User.id'],
         });
 
         movie.avgRating = getAvgRating(reviews);
@@ -45,7 +44,7 @@ router.get('/search/:movie', async (req, res) => {
   }
 });
 
-// Search for a specific movie by imdb_id.
+// Search for a specific movie by id.
 router.get('/:id', async (req, res) => {
   try {
     const movie = await getMovie(req.params.id);
