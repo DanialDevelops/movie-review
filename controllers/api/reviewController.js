@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Review } = require('../../models/');
+// - /api/review
 
 // GET all reviews
 router.get('/', async (req, res) => {
