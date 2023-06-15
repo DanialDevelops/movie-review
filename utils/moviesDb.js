@@ -57,8 +57,9 @@ async function getMovie(imdbID) {
   try {
     const response = await fetch(url, options, imdbID);
     const { results } = await response.json();
-    if (!(results.titleText && results.primaryImage && results.releaseYear)) {
-      return null;
+
+    if (!results) {
+      return;
     }
 
     const {
