@@ -2,17 +2,17 @@
   {
     "name": "My favourite movies",
     "user_id": 1,
-    "imdb_id": 1
+    "imdb_id": "tt21361444"
   },
   {
     "name": "Cool films",
     "user_id": 1,
-    "imdb_id": 2
+    "imdb_id": "tt103662066"
   },
   {
     "name": "my moviesssss",
     "user_id": 2,
-    "imdb_id": 1
+    "imdb_id": "tt21361444"
   },
   {
     "name": "list of movies",

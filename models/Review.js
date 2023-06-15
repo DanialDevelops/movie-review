@@ -10,18 +10,7 @@ Review.init(
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
-    },
-    content: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    rating: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 5,
-      },
+      unique: true,
     },
     imdb_id: {
       type: DataTypes.INTEGER,
@@ -38,6 +27,18 @@ Review.init(
         model: 'user',
         key: 'id',
       },
+    },
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: 1,
+        max: 5,
+      },
+    },
+    content: {
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
   },
   {

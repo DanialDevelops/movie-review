@@ -8,26 +8,18 @@ class Movie extends Model {}
 
 Movie.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
+    imdb_id: {
+      type: DataTypes.STRING,
       primaryKey: true,
-      autoIncrement: true,
       allowNull: false,
+      unique: true,
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    avg_rating: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
     },
-    genre: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    release_year: {
+    reviews_count: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    rating: {
-      type: DataTypes.DECIMAL(3, 1),
       allowNull: false,
       defaultValue: 0,
     },

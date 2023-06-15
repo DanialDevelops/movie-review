@@ -15,6 +15,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
+      unique: true,
     },
     username: {
       type: DataTypes.STRING,
@@ -49,7 +50,10 @@ User.init(
             updatedUserData.password,
             10
           );
-          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+          updatedUserData.password = await bcrypt.hash(
+            updatedUserData.password,
+            10
+          );
         }
         return updatedUserData;
       },

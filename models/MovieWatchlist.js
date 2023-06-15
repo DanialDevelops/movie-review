@@ -1,32 +1,18 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Watchlist extends Model {}
+class MovieWatchlist extends Model {}
 
-Watchlist.init(
+MovieWatchlist.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false,
-    },
     imdb_id: {
       // An id of a movie from the third-party movie API.
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id: {
+    watchlist_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: true,
     },
   },
   {
@@ -34,8 +20,8 @@ Watchlist.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'watchlist',
+    modelName: 'movie_watchlist',
   }
 );
 
-module.exports = Watchlist;
+module.exports = MovieWatchlist;
