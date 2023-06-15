@@ -10,10 +10,19 @@ Review.init(
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
+      unique: true,
     },
-    content: {
-      type: DataTypes.TEXT,
+    imdb_id: {
+      type: DataTypes.STRING,
       allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
     rating: {
       type: DataTypes.INTEGER,
@@ -23,21 +32,9 @@ Review.init(
         max: 5,
       },
     },
-    imdb_id: {
-      type: DataTypes.INTEGER,
+    content: {
+      type: DataTypes.TEXT,
       allowNull: false,
-      references: {
-        model: 'movie',
-        key: 'id',
-      },
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
     },
   },
   {

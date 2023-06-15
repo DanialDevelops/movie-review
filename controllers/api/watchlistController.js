@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Watchlist } = require('../../models/');
+// - /api/watchlist
 
 // GET all watchlists
 router.get('/', async (req, res) => {
