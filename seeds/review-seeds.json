@@ -1,26 +1,50 @@
 [
   {
-    "content": "Sick movie!",
+    "imdb_id": "tt21361444",
+    "user_id": 1,
     "rating": 5,
-    "imdb_id": 1,
-    "user_id": 1
+    "content": "Sick movie!"
   },
   {
+    "imdb_id": "tt103662066",
+    "user_id": 2,
     "content": "Good movie!",
-    "rating": 4,
-    "imdb_id": 4,
-    "user_id": 2
+    "rating": 4
   },
   {
-    "content": "Trash movie!",
+    "imdb_id": "tt27689176",
+    "user_id": 3,
     "rating": 1,
-    "imdb_id": 5,
-    "user_id": 3
+    "content": "Trash movie!"
   },
   {
-    "content": "It was decent.",
+    "imdb_id": "tt18765442",
+    "user_id": 4,
+    "content": "coooooooooool",
+    "rating": 3
+  },
+  {
+    "imdb_id": "tt16360004",
+    "user_id": 4,
+    "content": "Loved the visuals and the soundtrack",
+    "rating": 5
+  },
+  {
+    "imdb_id": "tt0910936",
+    "user_id": 5,
     "rating": 3,
-    "imdb_id": 2,
-    "user_id": 5
+    "content": "It was decent."
+  },
+  {
+    "imdb_id": "tt21361444",
+    "user_id": 5,
+    "rating": 3,
+    "content": "Awesome movie. A classic."
+  },
+  {
+    "imdb_id": "tt21361444",
+    "user_id": 2,
+    "rating": 5,
+    "content": "Spicy!"
   }
 ]
