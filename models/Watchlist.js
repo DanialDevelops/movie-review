@@ -11,9 +11,9 @@ Watchlist.init(
       autoIncrement: true,
       allowNull: false,
     },
-    imdb_id: {
-      // An id of a movie from the third-party movie API.
-      type: DataTypes.STRING,
+    imdb_ids: {
+      // A JSON array of movie ids.
+      type: DataTypes.JSON,
       allowNull: false,
     },
     user_id: {

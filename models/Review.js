@@ -13,12 +13,8 @@ Review.init(
       unique: true,
     },
     imdb_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: 'movie',
-        key: 'id',
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
