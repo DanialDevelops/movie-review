@@ -5,28 +5,25 @@ class Watchlist extends Model {}
 
 Watchlist.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
+    imdb_id: {
+      type: DataTypes.STRING,
       allowNull: false,
-    },
-    imdb_ids: {
-      // A JSON array of movie ids.
-      type: DataTypes.JSON,
-      allowNull: false,
+      unique: false,
+      foreignKey: true,
+      references: {
+        model: 'movie',
+        key: 'imdb_id',
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: true,
+      unique: false,
+      foreignKey: true,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
   },
   {
