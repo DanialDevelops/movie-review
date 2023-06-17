@@ -1,41 +1,50 @@
 [
   {
-    "title": "My favourite movies",
-    "user_id": 1,
-    "imdb_ids": ["tt21361444", "tt103662066"],
-    "description": "These movies are bangers."
+    "imdb_id": "tt10366206",
+    "user_id": 1
   },
   {
-    "title": "Cool films",
-    "user_id": 1,
-    "imdb_ids": ["tt103662066", "tt27689176"]
+    "imdb_id": "tt21361444",
+    "user_id": 2
   },
   {
-    "title": "my moviesssss",
-    "user_id": 2,
-    "imdb_ids": ["tt21361444", "tt18765442", "tt27689176"],
-    "description": "My recommendations for a movie night with the gf"
+    "imdb_id": "tt0816692",
+    "user_id": 3
   },
   {
-    "title": "list of movies",
-    "user_id": 3,
-    "imdb_ids": ["tt14385506"]
+    "imdb_id": "tt4633694",
+    "user_id": 4
   },
   {
-    "title": "Movies i like",
-    "user_id": 4,
-    "imdb_ids": ["tt14385506", "tt18765442", "tt16360004", "tt0910936"],
-    "description": "i like these movies"
+    "imdb_id": "tt10366206",
+    "user_id": 5
   },
   {
-    "title": "good movies",
-    "user_id": 4,
-    "imdb_ids": ["tt14385506", "tt14385506"],
-    "description": "decent movies"
+    "imdb_id": "tt21361444",
+    "user_id": 1
   },
   {
-    "title": "IDK",
-    "user_id": 5,
-    "imdb_ids": ["tt14385506", "tt14385506"]
+    "imdb_id": "tt0816692",
+    "user_id": 2
+  },
+  {
+    "imdb_id": "tt4633694",
+    "user_id": 3
+  },
+  {
+    "imdb_id": "tt10366206",
+    "user_id": 4
+  },
+  {
+    "imdb_id": "tt21361444",
+    "user_id": 5
+  },
+  {
+    "imdb_id": "tt0816692",
+    "user_id": 1
+  },
+  {
+    "imdb_id": "tt4633694",
+    "user_id": 2
   }
 ]

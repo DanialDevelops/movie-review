@@ -1,0 +1,32 @@
+[
+  {
+    "imdb_id": "tt10366206",
+    "title": "John Wick: Chapter 4",
+    "imgUrl": "https://m.media-amazon.com/images/M/MV5BMDg2YzI0ODctYjliMy00NTU0LTkxODYtYTNkNjQwMzVmOTcxXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_.jpg",
+    "releaseYear": 2019
+  },
+  {
+    "imdb_id": "tt21361444",
+    "title": "Avengers: Secret Wars (2026)",
+    "imgUrl": "https://m.media-amazon.com/images/M/MV5BZWE0MjkyNGQtMjgwMS00NGIwLTg5YmEtYThlOTQ1NTZmNWFmXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_.jpg",
+    "releaseYear": 2026
+  },
+  {
+    "imdb_id": "tt0816692",
+    "title": "Interstellar",
+    "imgUrl": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+    "releaseYear": 2014
+  },
+  {
+    "imdb_id": "tt5052448",
+    "title": "Get Out",
+    "imgUrl": "https://m.media-amazon.com/images/M/MV5BMjUxMDQwNjcyNl5BMl5BanBnXkFtZTgwNzcwMzc0MTI@._V1_.jpg",
+    "releaseYear": 2017
+  },
+  {
+    "imdb_id": "tt4633694",
+    "title": "Spider-Man: Into the Spider-Verse",
+    "imgUrl": "https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_.jpg",
+    "releaseYear": 2018
+  }
+]
