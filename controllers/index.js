@@ -7,7 +7,7 @@ routes.get('/', (req, res) => {
   res.render('home');
 });
 
-router.use('/', homeRoutes);
+routes.use('/', homeRoutes);
 routes.use('/api', apiRoutes);
 
 module.exports = routes;
