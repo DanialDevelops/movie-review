@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         ],
       });
       const reviews = reviewData.map((review) => review.get({ plain: true }));
-      res.render('homepage', { 
+      res.render('home', { 
         reviews, 
         logged_in: req.session.logged_in 
       });
@@ -67,7 +67,7 @@ router.get('/', async (req, res) => {
         res.redirect('/profile');
         return;
       }
-    
+    else
       res.render('login');
     });
     
