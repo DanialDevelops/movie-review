@@ -37,10 +37,26 @@ searchForm.addEventListener('submit', async (e) => {
     searchResults.appendChild(movieCard);
     movieCard.addEventListener('click', async (e) => {
       e.preventDefault();
-      // Put selected movie in localStorage so we don't have to make another API call.
-      localStorage.setItem('selectedMovie', JSON.stringify(movie));
+      // Put selected movie in sessionStorage so we don't have to make another API call.
+      addMovieToSession(movie);
+
       const movieId = e.currentTarget.getAttribute('data-id');
       window.location.replace(`/movie/${movieId}`);
     });
   });
 });
+
+async function addMovieToSession(movie) {
+  try {
+    const response = await fetch(`/api/movie/session`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(movie),
+    });
+    const savedMovie = await response.json();
+
+    window.location.href = `/movie/${savedMovie.id}`;
+  } catch (err) {
+    console.error('Failed to add movie to session.');
+  }
+}
