@@ -1,0 +1,39 @@
+<div>
+    {{#if user}}
+    <div>
+        <h2>{{ user.username }}</h2>
+        <h3>WatchList Movies</h3>
+        {{#each movies}}
+        <div class="card">
+            <div class="card-header">
+                <h3>{{ title }}</h3>
+            </div>
+            <div class="card-body">
+                <p>{{ description }}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div>
+        <h3>Reviews</h3>
+        {{#each reviews}}
+        <div class="card">
+            <div class="card-header">
+                <h3>{{ movie.title }}</h3>
+                <p>Rating: {{ rating }}/5</p>
+            </div>
+            <div class="card-body">
+                <p>{{ content }}</p>
+                <p>Reviewed by: {{ user.username }}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <h3>Not logged in</h3>
+    <div>
+        login <a href="/login">here</a>
+        signup <a href="/signup">here</a>
+    </div>
+    {{/if}}
+</div>

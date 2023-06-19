@@ -6,11 +6,11 @@ Some of the functionalities include:
 * Adding a movie to your own watchlist
 
 ## Authors
-* [github.com/qkr0wns](Peter Park)
-* [github.com/DanialDevelops](Danial)
-* [github.com/jlaceyrogers](Jack Lacey-Rogers)
-* [github.com/Mahdi-Moradzadeh](Mahdi Moradzadeh)
-* [github.com/matthewzmija](Matthew Zmija)
+* [Peter Park](github.com/qkr0wns)
+* [Danial](github.com/DanialDevelops)
+* [Jack Lacey-Rogers](github.com/jlaceyrogers)
+* [Mahdi Moradzadeh](github.com/Mahdi-Moradzadeh)
+* [Matthew Zmija](github.com/matthewzmija)
 
 ## Technologies Used
 * Express.js
@@ -41,13 +41,13 @@ npm start
 ```
 
 ## License
-This project is licensed under the MIT license.
+This project is licensed under the ISC license.
 
 ## Questions
 If you have any questions about the repo, open an issue or contact us directly at:
-* [github.com/qkr0wns](Peter Park)
-* [github.com/DanialDevelops](Danial)
-* [github.com/jlaceyrogers](Jack Lacey-Rogers)
-* [github.com/Mahdi-Moradzadeh](Mahdi Moradzadeh)
-* [github.com/matthewzmija](Matthew Zmija)
+* [Peter Park](github.com/qkr0wns)
+* [Danial](github.com/DanialDevelops)
+* [Jack Lacey-Rogers](github.com/jlaceyrogers)
+* [Mahdi Moradzadeh](github.com/Mahdi-Moradzadeh)
+* [Matthew Zmija](github.com/matthewzmija)
 
