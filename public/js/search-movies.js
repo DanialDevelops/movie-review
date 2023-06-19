@@ -9,14 +9,15 @@ searchForm.addEventListener('submit', async (e) => {
     headers: { 'Content-Type': 'application/json' },
   });
   const movies = await response.json();
-  console.log(movies);
 
+  // Remove previous search results.
+  while (searchResults.firstChild) {
+    searchResults.removeChild(searchResults.firstChild);
+  }
+
+  // Display search results.
   movies.forEach((movie) => {
     const movieCard = document.createElement('div');
-
-    while (searchResults.firstChild) {
-      searchResults.removeChild(searchResults.firstChild);
-    }
 
     movieCard.classList.add('card', 'col-3', 'm-1');
     movieCard.innerHTML = `

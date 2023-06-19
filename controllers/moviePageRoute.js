@@ -23,17 +23,19 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/movie/:id', async (req, res) => {
-    try {
-        const movieData = await Movie.findByPk(req.params.id);
-        const movie = movieData.get({ plain: true });
-        res.render('movie', {
-            ...movie,
-            logged_in: req.session.logged_in
-        });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({message: "Internal server error. Failed to load movie page."});
-    }
-}
+  try {
+    const movieData = await Movie.findByPk(req.params.id);
+    const movie = movieData.get({ plain: true });
+    res.render('movie', {
+      ...movie,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .json({ message: 'Internal server error. Failed to load movie page.' });
+  }
+});
 
 module.exports = router;
