@@ -26,8 +26,9 @@ router.get('/search/:movie', async (req, res) => {
             attributes: ['id', 'username'],
           },
         });
-
-        movie.avgRating = getAvgRating(reviews);
+        if (reviews.length) {
+          movie.avgRating = getAvgRating(reviews).toFixed(1);
+        }
         movie.reviewsCount = reviews.length;
         movie.reviews = reviews;
 
