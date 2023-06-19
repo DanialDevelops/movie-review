@@ -24,7 +24,9 @@ searchForm.addEventListener('submit', async (e) => {
     <img class='card-img-top' src='${movie.imageUrl}' alt='${movie.title}' />
         <div class='card-body'>
             <h5 class='card-title'>${movie.title}</h5>
-            <p class="card-text">Average Rating: ${movie.avgRating}</p>
+            <p class="card-text">Average Rating: ${movie.avgRating.toFixed(
+              1
+            )}</p>
             <p class="card-text">Reviews: ${movie.reviewsCount}</p>
         </div>
         `;
