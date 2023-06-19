@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Review } = require('../../models/');
+const { User, Review } = require('../../models');
 // - /api/review
 
 // GET all reviews
