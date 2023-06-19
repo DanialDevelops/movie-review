@@ -7,7 +7,7 @@ Some of the functionalities include:
 
 ## Authors
 * [Peter Park](github.com/qkr0wns)
-* [Danial](github.com/DanialDevelops)
+* [Danial Choudhry](github.com/DanialDevelops)
 * [Jack Lacey-Rogers](github.com/jlaceyrogers)
 * [Mahdi Moradzadeh](github.com/Mahdi-Moradzadeh)
 * [Matthew Zmija](github.com/matthewzmija)
@@ -46,7 +46,7 @@ This project is licensed under the ISC license.
 ## Questions
 If you have any questions about the repo, open an issue or contact us directly at:
 * [Peter Park](github.com/qkr0wns)
-* [Danial](github.com/DanialDevelops)
+* [Danial Choudhry](github.com/DanialDevelops)
 * [Jack Lacey-Rogers](github.com/jlaceyrogers)
 * [Mahdi Moradzadeh](github.com/Mahdi-Moradzadeh)
 * [Matthew Zmija](github.com/matthewzmija)
