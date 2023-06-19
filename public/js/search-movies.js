@@ -27,9 +27,9 @@ searchForm.addEventListener('submit', async (e) => {
         <h5 class='card-title'>${movie.title}</h5>
       `;
     if (movie.avgRating) {
-      cardContent += `<p class="card-text">Average Rating: ${movie.avgRating}</p>`;
+      cardContent += `<p class="card-text">Average rating: ${movie.avgRating}</p>`;
     }
-    cardContent += `<p class="card-text">Reviews: ${movie.reviewsCount}</p>
+    cardContent += `<p class="card-text">${movie.reviewsCount} reviews</p>
       </div>
       `;
     movieCard.innerHTML = cardContent;
