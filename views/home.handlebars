@@ -1,3 +1,27 @@
+
+<div class='d-flex flex-wrap container'></div>
+{{#each reviewdata as |movie|}}
+    <div
+      class='d-flex col-3 m-3 border border-black card flex-column justify-content-between align-items-center'
+    >
+      <div class=''>
+        <img
+          style='height: 350px; width: auto'
+          class='m-4'
+          src='{{movie.posterImage}}'
+          alt=''
+        />
+      </div>
+      <div class='p-2'>
+        <p class=''>
+          {{movie.review}}
+        </p>
+      </div>
+    </div>
+{{/each}}
+</div>
+
+/*
 <h1>Homepage view goes here!</h1>
  <form class="form movie-form">
       <div class="form-group">
@@ -10,5 +34,5 @@
     </form>
 
     <script src='/js/search.js'></script>
-
+    */
 
