@@ -35,7 +35,6 @@ router.get('/search/:movie', async (req, res) => {
         return movie;
       })
     );
-
     res.json(moviesWithReviews);
   } catch (err) {
     res
@@ -76,6 +75,16 @@ router.get('/:id', async (req, res) => {
       .status(500)
       .json({ message: 'Internal server error. Could not get movie.' });
     throw new Error(err);
+  }
+});
+
+// Save current movie to session.
+router.post('/session', async (req, res) => {
+  try {
+    req.session.selectedMovie = req.body;
+    res.status(200).json(req.session.selectedMovie);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to save movie to session.' });
   }
 });
 
