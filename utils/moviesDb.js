@@ -1,5 +1,3 @@
-// const movieName = 'Avengers';
-// const imdbID = 'tt21361444';
 require('dotenv').config();
 
 async function getAllMovies(movieName) {

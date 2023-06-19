@@ -52,10 +52,11 @@ router.get('/', async (req, res) => {
       });
   
       const user = userData.get({ plain: true });
-  
+      const movies = [{movie: "The Matrix", rating: 5}, {movie: "The Matrix Reloaded", rating: 4}, {movie: "The Matrix Revolutions", rating: 3}];
       res.render('profile', {
-        ...user,
-        logged_in: true
+        user,
+        logged_in: true,
+        movies
       });
     } catch (err) {
       res.status(500).json(err);
