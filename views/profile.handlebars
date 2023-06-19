@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .card {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .card h2, .card h4 {
+      color: #333333;
+      margin-bottom: 10px;
+    }
+
+    .card p, .card span {
+      color: #666666;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- User Profile Card -->
+      <div class="col-12 col-md-6 mb-3">
+        <div class="card">
+          <h2>User Profile</h2>
+          <hr>
+          <h4>Name: <span>{{name}}</span></h4>
+          <h4>Username: <span>{{username}}</span></h4>
+          <h4>Email: <span>{{email}}</span></h4>
+          <h4>Password: <span>{{password}}</span></h4> <!-- Not a good practice! -->
+          <h4>About: <span>{{about}}</span></h4>
+        </div>
+      </div>
+
+      <!-- User Watchlist Card -->
+      <div class="col-12 col-md-6">
+        <div class="card">
+          <h2>Watchlist</h2>
+          <hr>
+          {{#each watchlist}}
+            <h4>{{this}}</h4>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+    <!-- User Movie Reviews -->
+    <div class="row">
+      <div class="col-12">
+        <h2>Movie Reviews</h2>
+        {{#each movies}}
+          <div class="card mb-3">
+            <h4>{{title}}</h4>
+            <p>{{review}}</p>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
