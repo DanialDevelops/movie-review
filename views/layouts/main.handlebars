@@ -35,6 +35,11 @@
           {{else}}
             <a href='/login'>login</a>
           {{/if}}
+          <form id="search-form" class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="no-button" type="submit">Search</button>
+          </form>
+          
         </nav>
       </header>
       <main class='container container-fluid mt-5'>
@@ -46,8 +51,9 @@
     </div>
 
     {{#if logged_in}}
-      <script src='/js/logout.js'></script>
+      <script src='/public/js/logout.js'></script>
     {{/if}}
+    <script src="/public/js/search-movies.js"></script>
   </body>
 
 </html>
