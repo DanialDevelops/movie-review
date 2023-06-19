@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const userRouter = require('./userController.js');
-const movieRouter = require('./movieController.js');
-const reviewRouter = require('./reviewController.js');
-const watchlistRouter = require('./watchlistController.js');
+const userRouter = require('./userRouter.js');
+const movieRouter = require('./movieRouter.js');
+const reviewRouter = require('./reviewRouter.js');
+const watchlistRouter = require('./watchlistRouter.js');
 
 router.use('/user', userRouter);
 router.use('/movie', movieRouter);

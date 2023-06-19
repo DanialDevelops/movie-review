@@ -1,7 +1,7 @@
 const routes = require('express').Router();
 
-const homeRoutes = require('./homeRoutes');
-const movieRoutes = require('./movieRoutes');
+const homeRoutes = require('./homeRouter');
+const movieRoutes = require('./moviePageRouter');
 const apiRoutes = require('./api');
 
 routes.get('/', (req, res) => {
