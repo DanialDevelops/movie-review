@@ -13,7 +13,7 @@
     </div>
   <h2>Reviews</h2>
   {{#each reviews as |review|}}
-    <div class='card my-4 col-12 review-card'>
+    <div data-id='{{review.imdb_id}}' class='card my-4 col-12 review-card'>
       <div class='card-body'>
         <div class='d-flex justify-content-between'>
           <h4 class='card-title'>{{review.title}}</h4>
@@ -25,3 +25,5 @@
     </div>
   {{/each}}
 </div>
+
+<script src='/js/profile-reviews.js'></script>
