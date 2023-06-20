@@ -7,26 +7,25 @@ const getMovie = require('../utils/moviesDb');
 
 router.get('/:id', withAuth, async (req, res) => {
   try {
-    let movie;
-    // Check if movie already exists in db.
-    const movieData = await Movie.findByPk(req.params.id);
+    const selectedMovie = req.session.selectedMovie;
 
-    if (!movieData) {
-      movie = await getMovie(req.params.id);
-      res.render('movie', {
-        ...movie,
-        logged_in: req.session.logged_in,
-      });
-      return;
-    }
-
-    movie = movieData.get({ plain: true });
     if (req.session.selectedMovie.reviewsCount) {
-      console.log('HELLLOOOOO');
+      const reviewsData = await Review.findAll({
+        where: {
+          imdb_id: selectedMovie.id,
+        },
+        attributes: ['rating', 'content', 'createdAt', 'updatedAt'],
+        include: {
+          model: User,
+          attributes: ['username'],
+        },
+      });
+      const reviews = reviewsData.map((review) => review.get({ plain: true }));
+      selectedMovie.reviews = reviews;
     }
 
     res.render('movie', {
-      ...movie,
+      ...selectedMovie,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
