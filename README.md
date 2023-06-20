@@ -1,7 +1,7 @@
 # Movie-reviews
 
 ## Description
-This is a simple movie review app that allows users to add movies and review them. It also allows users to have the ability to view other users' reviews and ratings.
+This is a simple movie review app that allows users to add movies and review them. It also allows users to view other users' reviews and ratings.
 Some of the functionalities include:
 * Adding a movie to your own watchlist
 
@@ -41,7 +41,7 @@ npm start
 ```
 
 ## License
-This project is licensed under the ISC license.
+This project is licensed under the MIT license.
 
 ## Questions
 If you have any questions about the repo, open an issue or contact us directly at:
@@ -50,4 +50,5 @@ If you have any questions about the repo, open an issue or contact us directly a
 * [Jack Lacey-Rogers](github.com/jlaceyrogers)
 * [Mahdi Moradzadeh](github.com/Mahdi-Moradzadeh)
 * [Matthew Zmija](github.com/matthewzmija)
+
 
