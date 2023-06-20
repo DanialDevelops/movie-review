@@ -7,6 +7,6 @@ const watchlistRouter = require('./watchlistRouter.js');
 router.use('/user', userRouter);
 router.use('/movie', movieRouter);
 router.use('/review', reviewRouter);
-router.use('/watchlist', watchlistRouter);
+router.use('/user/watchlist', watchlistRouter);
 
 module.exports = router;

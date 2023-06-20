@@ -43,9 +43,7 @@
         <div>
           {{#if logged_in}}
             <a class='btn btn-link' href='/profile'>profile</a>
-            <button class='btn btn-link'>
-              watchlist
-            </button>
+            <a class='btn btn-link' href='/user/watchlist'>watchlist</a>
             <button class='btn btn-link' id='logout'>logout</button>
           {{else}}
             {{> login-dropdown}}
