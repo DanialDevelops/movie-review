@@ -1,5 +1,21 @@
 const searchForm = document.querySelector('#search-form');
 const searchResults = document.querySelector('#search-results');
+const searchError = document.querySelector('#search-error');
+
+async function addMovieToSession(movie) {
+  try {
+    const response = await fetch(`/api/movie/session`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(movie),
+    });
+    const savedMovie = await response.json();
+
+    window.location.href = `/movie/${savedMovie.id}`;
+  } catch (err) {
+    console.error('Failed to add movie to session.');
+  }
+}
 
 searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -8,6 +24,13 @@ searchForm.addEventListener('submit', async (e) => {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   });
+
+  // Error message.
+  searchError.textContent = '';
+  if (response.status === 404) {
+    searchError.textContent = 'No movies found.';
+    return;
+  }
   const movies = await response.json();
 
   // Remove previous search results.
@@ -20,8 +43,14 @@ searchForm.addEventListener('submit', async (e) => {
     const movieCard = document.createElement('div');
     const watchlistButton = document.createElement('button');
     movieCard.setAttribute('data-id', movie.id);
-    movieCard.classList.add('card', 'col-3', 'm-1');
-    watchlistButton.classList.add('btn', 'btn-primary', 'm-1');
+    movieCard.classList.add(
+      'card',
+      'col-2',
+      'm-1',
+      'd-flex',
+      'flex-column',
+      'justify-content-between'
+    );
 
     let cardContent = `
       <img class='card-img-top' src='${movie.imageUrl}' alt='${movie.title}' />
@@ -44,14 +73,12 @@ searchForm.addEventListener('submit', async (e) => {
     // }
 
     watchlistButton.textContent = 'Add to Watchlist';
-    
+
     movieCard.appendChild(watchlistButton);
     searchResults.appendChild(movieCard);
     watchlistButton.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
-    
-
     });
     movieCard.addEventListener('click', async (e) => {
       e.preventDefault();
@@ -63,21 +90,6 @@ searchForm.addEventListener('submit', async (e) => {
     });
   });
 });
-
-async function addMovieToSession(movie) {
-  try {
-    const response = await fetch(`/api/movie/session`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(movie),
-    });
-    const savedMovie = await response.json();
-
-    window.location.href = `/movie/${savedMovie.id}`;
-  } catch (err) {
-    console.error('Failed to add movie to session.');
-  }
-}
 
 // on the page load send ajax request to get all watchlist from the database
 // this request will check if the user is logged in or not
