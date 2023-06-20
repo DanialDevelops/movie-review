@@ -16,9 +16,6 @@ const loginHandler = async (event) => {
         password,
       });
 
-      const results = response.data;
-      console.log(results);
-
       if (response.status === 200) {
         document.location.replace('/');
       } else {

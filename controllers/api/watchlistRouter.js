@@ -45,10 +45,13 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST one watchlist
-router.post('/', async (req, res) => {
+router.post('/:movie', async (req, res) => {
   if (req.session.logged_in) {
     try {
-      const watchlistData = await Watchlist.create(req.body);
+      const watchlistData = await Watchlist.create({
+        imdb_id: req.params.movie,
+        user_id: req.session.user_id,
+      });
       res.status(200).json(watchlistData);
     } catch (err) {
       res.status(400).json(err);

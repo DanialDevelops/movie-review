@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Review, Movie, Watchlist } = require('../models');
 const withAuth = require('../utils/auth');
+const { getMovie } = require('../utils/moviesDb');
 
 // -> /watchlist
 
@@ -11,20 +12,22 @@ router.get('/', withAuth, async (req, res) => {
       where: {
         user_id: currentUser,
       },
-      include: {
-        model: Movie,
-        attributes: [],
+      attributes: {
+        exclude: ['user_id'],
       },
     });
-    const watchlist = watchlistData.map((watchlist) =>
-      watchlist.get({ plain: true })
+    const watchlist = await Promise.all(
+      watchlistData.map(async (watchlist) => {
+        watchlist.get({ plain: true });
+        const movie = await getMovie(watchlist.imdb_id);
+        return movie;
+      })
     );
-    console.log(watchlist);
 
-    // res.render('watchlist', {
-    //   watchlist,
-    //   logged_in: req.session.logged_in,
-    // });
+    res.render('watchlist', {
+      watchlist,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json({
       message: 'Internal server error. Failed to load watchlist page.',

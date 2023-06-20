@@ -34,7 +34,7 @@ router.get('/profile', withAuth, async (req, res) => {
         return review;
       })
     );
-    console.log(reviews);
+
     res.render('profile', {
       user,
       logged_in: req.session.logged_in,

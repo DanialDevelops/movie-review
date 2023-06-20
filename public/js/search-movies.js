@@ -88,15 +88,20 @@ searchForm.addEventListener('submit', async (e) => {
           'mb-3',
           'watchlist-btn'
         );
+        movieCard.appendChild(watchlistButton);
 
         watchlistButton.addEventListener('click', async (e) => {
-          e.preventDefault();
           e.stopPropagation();
-          const movieId = movieCard.getAttribute('data-id');
-          console.log(movieId);
+          const movieId = e.currentTarget.getAttribute('data-id');
+          const response = await axios.post('/api/watchlist', {
+            imdb_id: movieId,
+          });
+          if (response.status === 200) {
+            document.location.replace('/watchlist');
+          } else {
+            document.location.replace('/');
+          }
         });
-
-        movieCard.appendChild(watchlistButton);
       }
 
       searchResults.appendChild(movieCard);
