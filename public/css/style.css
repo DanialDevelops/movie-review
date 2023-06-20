@@ -62,3 +62,11 @@ h1:hover,
 .detail {
   color: var(--red-header)
 }
+
+.profile-card {
+  background-color: var(--red-header);
+}
+
+.dropdown-menu {
+  background-color: var(--green);
+}

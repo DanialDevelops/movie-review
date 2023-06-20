@@ -22,10 +22,6 @@ const seedDatabase = async () => {
       await Review.create(review);
     }
 
-    for (const review of reviews) {
-      await Review.create(review);
-    }
-
     for (const watchlist of watchlists) {
       await Watchlist.create(watchlist);
     }

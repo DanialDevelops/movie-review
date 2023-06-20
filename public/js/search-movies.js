@@ -2,6 +2,17 @@ const searchForm = document.querySelector('#search-form');
 const searchResults = document.querySelector('#search-results');
 const searchError = document.querySelector('#search-error');
 
+async function isLoggedIn() {
+  try {
+    const response = await axios.get('/api/user/status');
+    const { logged_in } = response.data;
+    return logged_in || false;
+  } catch (err) {
+    console.error('Failed to check if user is logged in.', err);
+    return false;
+  }
+}
+
 async function addMovieToSession(movie) {
   try {
     const response = await axios.post('/api/movie/session', movie);
@@ -26,7 +37,6 @@ searchForm.addEventListener('submit', async (e) => {
   try {
     const response = await axios.get(`/api/movie/search/${searchInput}`);
     const movies = response.data;
-    console.log(movies);
 
     // Error message if no movies found.
     if (response.status === 404) {
@@ -35,9 +45,8 @@ searchForm.addEventListener('submit', async (e) => {
     }
 
     // Display search results.
-    movies.forEach((movie) => {
+    movies.forEach(async (movie) => {
       const movieCard = document.createElement('div');
-      const watchlistButton = document.createElement('button');
       movieCard.setAttribute('data-id', movie.id);
       movieCard.classList.add(
         'card',
@@ -51,9 +60,9 @@ searchForm.addEventListener('submit', async (e) => {
       );
 
       let cardContent = `
-        <img class='card-img-top img-thumbnail'  style='height: 420' src='${movie.imageUrl}' alt='${movie.title}' />
+        <img class='card-img-top img-thumbnail' style='height: 420' src='${movie.imageUrl}' alt='${movie.title}' />
         <div class='card-body text-center'>
-          <h5 class='card-title'>${movie.title}</h5>
+          <h5 class='card-title my-2'>${movie.title}</h5>
       `;
       if (movie.avgRating) {
         cardContent += `<p class="card-text"><span class='detail'>Average rating:</span> ${movie.avgRating}</p>`;
@@ -63,21 +72,36 @@ searchForm.addEventListener('submit', async (e) => {
       `;
       movieCard.innerHTML = cardContent;
 
-      watchlistButton.textContent = 'Add to Watchlist';
-      watchlistButton.classList.add('btn', 'btn-success', 'mb-3');
-      movieCard.appendChild(watchlistButton);
+      // Append watchlist btn if user is logged in.
+      if (await isLoggedIn()) {
+        const watchlistButton = document.createElement('button');
+        watchlistButton.textContent = 'Add to watchlist';
+        watchlistButton.classList.add(
+          'btn',
+          'btn-success',
+          'mb-3',
+          'watchlist-btn'
+        );
+
+        watchlistButton.addEventListener('click', async (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const movieId = movieCard.getAttribute('data-id');
+          console.log(movieId);
+        });
+
+        movieCard.appendChild(watchlistButton);
+      }
 
       searchResults.appendChild(movieCard);
-      watchlistButton.addEventListener('click', async (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-      });
+
       movieCard.addEventListener('click', async (e) => {
         e.preventDefault();
+        const movieId = e.currentTarget.getAttribute('data-id');
+
         // Put selected movie in session storage so we don't have to make another API call.
         addMovieToSession(movie);
 
-        const movieId = e.currentTarget.getAttribute('data-id');
         window.location.replace(`/movie/${movieId}`);
       });
     });
@@ -85,9 +109,3 @@ searchForm.addEventListener('submit', async (e) => {
     searchError.textContent = 'Search failed. Try again!';
   }
 });
-
-// on the page load send ajax request to get all watchlist from the database
-// this request will check if the user is logged in or not
-// if logged in then send the data of watchlist as json (API route)
-// after receiving the data, save in local storage
-// after fetching movies api data then compared it to local storage data

@@ -7,8 +7,9 @@ const apiRoutes = require('./api');
 // Homepage.
 router.get('/', async (req, res) => {
   try {
+    const loggedIn = req.session.logged_in || false;
     res.render('home', {
-      logged_in: req.session.logged_in,
+      logged_in: loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);

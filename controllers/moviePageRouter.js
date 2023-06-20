@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const { Review, User, Movie } = require('../models');
+const { Review, User } = require('../models');
 const withAuth = require('../utils/auth');
-const getMovie = require('../utils/moviesDb');
 
 // -> /movie
 

@@ -4,11 +4,11 @@ const withAuth = require('../utils/auth');
 
 // -> /
 
-router.get('/login', (req, res) => {
+router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
-  } else res.render('login');
+  } else res.render('signup');
 });
 
 router.get('/profile', withAuth, async (req, res) => {
