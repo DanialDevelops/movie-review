@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Watchlist } = require('../../models/');
+const { User, Watchlist, Movie } = require('../../models/');
 // - /api/watchlist
 
 // GET all watchlists
@@ -54,6 +54,7 @@ router.post('/:movie', async (req, res) => {
       });
       res.status(200).json(watchlistData);
     } catch (err) {
+      console.error(err);
       res.status(400).json(err);
     }
   } else {

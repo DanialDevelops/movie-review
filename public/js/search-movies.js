@@ -92,10 +92,10 @@ searchForm.addEventListener('submit', async (e) => {
 
         watchlistButton.addEventListener('click', async (e) => {
           e.stopPropagation();
-          const movieId = e.currentTarget.getAttribute('data-id');
-          const response = await axios.post('/api/watchlist', {
-            imdb_id: movieId,
-          });
+          const movieId = e.currentTarget
+            .closest('.movie-card')
+            .getAttribute('data-id');
+          const response = await axios.post(`/api/watchlist/${movieId}`);
           if (response.status === 200) {
             document.location.replace('/watchlist');
           } else {
