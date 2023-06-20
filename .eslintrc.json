@@ -6,9 +6,20 @@
     "es2021": true
   },
   "extends": ["eslint:recommended", "prettier"],
+  "plugins": ["import"],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "rules": {}
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ]
+  },
+  "globals": {
+    "axios": "readonly"
+  }
 }

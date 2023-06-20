@@ -1,13 +1,12 @@
 const logout = async () => {
-  const response = await fetch('/api/user/logout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
+  try {
+    const response = await axios.post('/api/user/logout');
 
-  if (response.ok) {
-    document.location.replace('/');
-  } else {
-    alert(response.statusText);
+    if (response.status === 204) {
+      document.location.replace('/');
+    }
+  } catch (error) {
+    console.error(error);
   }
 };
 

@@ -1,11 +1,36 @@
-
-<div class="card">
-  <img src="" alt="" class="card-img-top">
-  <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
-    <p class="card-text">{{description}}</p>
-    <p class="card-text">{{genre}}</p>
-    <p class="card-text">{{year}}</p>
-    <p class="card-text">{{rating}}</p>
+<div data-id='{{id}}' id='movie-card' class='container d-flex flex-column align-items-center'>
+  <div class='card d-flex flex-row border-5'>
+    <img src='{{imageUrl}}' alt='{{title}} movie poster' style='width: 18rem' />
+    <div
+      class='card-body d-flex flex-column movie-card justify-content-center align-items-center text-center'
+    >
+      <h2 class='card-title m-2 my-6 h1'>{{title}}</h2>
+      <p class='card-text m-2 h3'><span class='detail'>Released:</span>
+        {{releaseYear}}</p>
+      {{#if avgRating}}
+        <p class='card-text m-2 h3'><span class='detail'>Average rating:</span>
+          {{avgRating}}</p>
+      {{/if}}
+      <p class='card-text m-2 h3'>{{reviewsCount}}
+        <span class='detail'>reviews</span></p>
+      <button class='btn btn-success my-4 watchlist-btn'>
+        Add to watchlist
+      </button>
+    </div>
   </div>
+  {{> review-modal}}
+  {{#each reviews as |review|}}
+    <div class='card my-4 col-12'>
+      <div class='card-body'>
+        <div class='d-flex justify-content-between'>
+          <h4 class='card-title'>{{review.user.username}}</h4>
+          <h5 class='h1'>{{review.rating}} <span>/ 5</span></h5>
+        </div>
+        <p class='card-text'>{{review.content}}</p>
+        <small>Reviewed on {{formatTimestamp review.createdAt}}</small>
+      </div>
+    </div>
+  {{/each}}
 </div>
+
+<script src="/js/add-to-list.js"></script>

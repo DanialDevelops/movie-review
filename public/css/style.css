@@ -1,53 +1,77 @@
+:root {
+  --green: rgb(185, 197, 91);
+  --red-body: #9d3131;
+  --red-header: #a93a3ad2;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #0066cc;
-    color: white;
-  }
+  font-family: 'Josefin Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--red-body);
+  color: white;
+}
 
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
+header {
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--red-header);
+}
 
-  header {
-    background-color: #66b3ff;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+header h1 {
+  font-size: 64px;
+  margin: 0;
+  display: inline;
+  font-family: Kablammo, cursive;
+  color: white;
+}
 
-  header h1 {
-    font-size: 32px;
-    border-bottom: 5px solid white;
-    margin: 0;
-    display: inline;
-  }
+img {
+  object-fit: cover;
+}
 
-  header a {
-    text-decoration: none;
-    color: white;
-  }
+span {
+  color: var(--green);
+}
 
-  nav {
-    margin-top: 10px;
-  }
+.btn-link {
+  margin-right: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
 
-  nav a {
-    margin-right: 10px;
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-  }
+h1:hover,
+.btn-link:hover {
+  color: var(--green)
+}
 
-  main {
-    flex: 1;
-    padding: 20px;
-  }
+.movie-card {
+  background-color: var(--green);
+  cursor: pointer;
+}
 
-  footer {
-    background-color: navy;
-    padding: 10px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  }
+.review-card {
+  cursor: pointer;
+}
+
+.error-msg {
+  color: pink;
+}
+
+.card-text {
+  color: var(--red-body);
+}
+
+.detail {
+  color: var(--red-header)
+}
+
+.profile-card {
+  background-color: var(--red-header);
+}
+
+.dropdown-menu,
+.modal-body {
+  background-color: var(--green);
+}

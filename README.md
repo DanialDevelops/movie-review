@@ -19,6 +19,8 @@ Some of the functionalities include:
 * Sequelize
 * Handlebars.js
 * Bootstrap
+* Axios
+* CSS
 * Heroku
 * GitHub
 
@@ -27,6 +29,7 @@ Some of the functionalities include:
 * [Usage](#usage)
 * [License](#license)
 * [Questions](#questions)
+* [Links](#links)
 
 ## Installation
 To install necessary dependencies, run the following command:
@@ -41,7 +44,7 @@ npm start
 ```
 
 ## License
-This project is licensed under the MIT license.
+This project is licensed under the ISC license.
 
 ## Questions
 If you have any questions about the repo, open an issue or contact us directly at:
@@ -51,4 +54,6 @@ If you have any questions about the repo, open an issue or contact us directly a
 * [Mahdi Moradzadeh](github.com/Mahdi-Moradzadeh)
 * [Matthew Zmija](github.com/matthewzmija)
 
-
+## Links
+* [Deployed On Heroku](https://movie-reviews-2021.herokuapp.com/)
+* [GitHub Repo](https://github.com/DanialDevelops/movie-review)

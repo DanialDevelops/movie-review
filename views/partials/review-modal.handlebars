@@ -1,0 +1,100 @@
+<button
+  type='button'
+  class='btn btn-success mt-4'
+  data-toggle='modal'
+  data-target='#review-modal'
+>Add your review</button>
+
+<div
+  class='modal fade'
+  id='review-modal'
+  tabindex='-1'
+  role='dialog'
+  aria-labelledby='review-modal-label'
+  aria-hidden='true'
+>
+  <div class='modal-dialog' role='document'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='review-modal-label' style='color: black'>
+          {{title}}</h5>
+      </div>
+      <div class='modal-body'>
+        <form id='review-form' class='needs-validation'>
+          <div class='form-group'>
+            <label
+              for='message-text'
+              class='col-form-label'
+              style='color: black'
+            >Review:</label>
+            <textarea class='form-control' id='review-text'></textarea>
+          </div>
+        </form>
+        {{! Rating }}
+        <span style='color: black' class='me-4'>Rating: </span>
+        <div class='form-check form-check-inline'>
+          <input
+            class='form-check-input'
+            type='radio'
+            name='inlineRadioOptions'
+            id='inlineRadio1'
+            value='1'
+          />
+          <label class='form-check-label' for='inlineRadio1'>1</label>
+        </div>
+        <div class='form-check form-check-inline'>
+          <input
+            class='form-check-input'
+            type='radio'
+            name='inlineRadioOptions'
+            id='inlineRadio2'
+            value='2'
+          />
+          <label class='form-check-label' for='inlineRadio2'>2</label>
+        </div>
+        <div class='form-check form-check-inline'>
+          <input
+            class='form-check-input'
+            type='radio'
+            name='inlineRadioOptions'
+            id='inlineRadio3'
+            value='3'
+            checked
+          />
+          <label class='form-check-label' for='inlineRadio3'>3</label>
+        </div>
+        <div class='form-check form-check-inline'>
+          <input
+            class='form-check-input'
+            type='radio'
+            name='inlineRadioOptions'
+            id='inlineRadio4'
+            value='4'
+          />
+          <label class='form-check-label' for='inlineRadio4'>4</label>
+        </div>
+        <div class='form-check form-check-inline'>
+          <input
+            class='form-check-input'
+            type='radio'
+            name='inlineRadioOptions'
+            id='inlineRadio5'
+            value='5'
+          />
+          <label class='form-check-label' for='inlineRadio5'>5</label>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button
+          type='button'
+          class='btn btn-secondary'
+          data-dismiss='modal'
+        >Close</button>
+        <button type='button' class='btn btn-success' id='review-btn'>Post
+          review</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src='/js/review.js'></script>

@@ -22,13 +22,9 @@ const seedDatabase = async () => {
       await Review.create(review);
     }
 
-    for (const review of reviews) {
-      await Review.create(review);
-    }
-
-    for (const watchlist of watchlists) {
-      await Watchlist.create(watchlist);
-    }
+    // for (const watchlist of watchlists) {
+    //   await Watchlist.create(watchlist);
+    // }
     console.log('Seed data created successfully.');
   } catch (error) {
     console.error('Error seeding database:', error);
