@@ -15,20 +15,23 @@ async function addMovieToSession(movie) {
 
 searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+
+  // Reset page.
+  searchError.textContent = '';
+  while (searchResults.firstChild) {
+    searchResults.removeChild(searchResults.firstChild);
+  }
+
   const searchInput = document.querySelector('#search-input').value.trim();
   try {
     const response = await axios.get(`/api/movie/search/${searchInput}`);
     const movies = response.data;
+    console.log(movies);
 
-    // Error message.
+    // Error message if no movies found.
     if (response.status === 404) {
       searchError.textContent = 'No movies found. Try again!';
       return;
-    }
-
-    // Remove previous search results.
-    while (searchResults.firstChild) {
-      searchResults.removeChild(searchResults.firstChild);
     }
 
     // Display search results.
@@ -58,13 +61,6 @@ searchForm.addEventListener('submit', async (e) => {
         </div>
       `;
       movieCard.innerHTML = cardContent;
-      // for(let i = 0; i < watchlistDB.length; i++){
-      //   if(movie.id === watchlistDB[i].movie_id){
-      //     watchlistButton.textContent = 'Remove from Watchlist';
-      //     return;
-      //   }
-      //   watchlistButton.textContent = 'Add to Watchlist';
-      // }
 
       watchlistButton.textContent = 'Add to Watchlist';
 
@@ -84,8 +80,7 @@ searchForm.addEventListener('submit', async (e) => {
       });
     });
   } catch (err) {
-    console.error('Search failed:', err);
-    alert('Failed to search movies. Please try again.');
+    searchError.textContent = 'Search failed. Try again!';
   }
 });
 

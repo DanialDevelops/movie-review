@@ -1,14 +1,14 @@
 require('dotenv').config();
 const axios = require('axios');
+const options = {
+  headers: {
+    'X-RapidAPI-Key': process.env.MOVIE_DB_KEY,
+    'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com',
+  },
+};
 
 async function getAllMovies(movieName) {
   const url = `https://moviesdatabase.p.rapidapi.com/titles/search/title/${movieName}?exact=false&titleType=movie`;
-  const options = {
-    headers: {
-      'X-RapidAPI-Key': process.env.MOVIE_DB_KEY,
-      'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com',
-    },
-  };
 
   try {
     const response = await axios.get(url, options);
@@ -36,18 +36,12 @@ async function getAllMovies(movieName) {
 
     return formattedResults;
   } catch (err) {
-    throw new Error(err);
+    console.error(err);
   }
 }
 
 async function getMovie(imdbID) {
   const url = `https://moviesdatabase.p.rapidapi.com/titles/${imdbID}`;
-  const options = {
-    headers: {
-      'X-RapidAPI-Key': process.env.MOVIE_DB_KEY,
-      'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com',
-    },
-  };
 
   try {
     const response = await axios.get(url, options);
@@ -66,7 +60,7 @@ async function getMovie(imdbID) {
 
     return { id, title, imageUrl, releaseYear };
   } catch (err) {
-    throw new Error(err);
+    console.error(err);
   }
 }
 
