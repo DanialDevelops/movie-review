@@ -1,3 +1,6 @@
+const passwordInput = document.querySelector('#password-login');
+const emailInput = document.querySelector('#email-login');
+
 const loginHandler = async (event) => {
   event.preventDefault();
 
@@ -13,9 +16,6 @@ const loginHandler = async (event) => {
         password,
       });
 
-      const results = response.data;
-      console.log(results);
-
       if (response.status === 200) {
         document.location.replace('/');
       } else {
@@ -27,7 +27,20 @@ const loginHandler = async (event) => {
       errorMsg.textContent = 'Incorrect email or password. Please try again';
       console.error('Login failed:', err);
     }
+  } else {
+    emailInput.classList.add('is-invalid');
+    passwordInput.classList.add('is-invalid');
   }
 };
+
+emailInput.addEventListener('input', () => {
+  emailInput.classList.remove('is-invalid');
+  passwordInput.classList.remove('is-invalid');
+});
+
+passwordInput.addEventListener('input', () => {
+  emailInput.classList.remove('is-invalid');
+  passwordInput.classList.remove('is-invalid');
+});
 
 document.querySelector('#login-form').addEventListener('submit', loginHandler);
