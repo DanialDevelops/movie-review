@@ -1,4 +1,6 @@
-<div class='container d-flex flex-column align-items-center'>
+
+
+<div data-id='{{id}}' id='movie-card' class='container d-flex flex-column align-items-center'>
   <div class='card d-flex flex-row border-5'>
     <img src='{{imageUrl}}' alt='{{title}} movie poster' style='width: 18rem' />
     <div
@@ -18,7 +20,7 @@
       </button>
     </div>
   </div>
-  <button class='btn btn-success mt-4'>Add your review</button>
+  {{> review-modal}}
   {{#each reviews as |review|}}
     <div class='card my-4 col-12'>
       <div class='card-body'>
@@ -27,7 +29,7 @@
           <h5 class='h1'>{{review.rating}} <span>/ 5</span></h5>
         </div>
         <p class='card-text'>{{review.content}}</p>
-        <small>Reviewed on {{review.createdAt}}</small>
+        <small>Reviewed on {{formatTimestamp review.createdAt}}</small>
       </div>
     </div>
   {{/each}}

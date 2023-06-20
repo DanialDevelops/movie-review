@@ -1,6 +1,7 @@
 const searchForm = document.querySelector('#search-form');
 const searchResults = document.querySelector('#search-results');
 const searchError = document.querySelector('#search-error');
+const searchField = document.querySelector('#search-input');
 
 async function isLoggedIn() {
   try {
@@ -34,6 +35,11 @@ searchForm.addEventListener('submit', async (e) => {
   }
 
   const searchInput = document.querySelector('#search-input').value.trim();
+  if (!searchInput) {
+    searchField.classList.add('is-invalid');
+    return;
+  }
+
   try {
     const response = await axios.get(`/api/movie/search/${searchInput}`);
     const movies = response.data;
@@ -102,10 +108,19 @@ searchForm.addEventListener('submit', async (e) => {
         // Put selected movie in session storage so we don't have to make another API call.
         addMovieToSession(movie);
 
-        window.location.replace(`/movie/${movieId}`);
+        if (await isLoggedIn()) {
+          window.location.replace(`/movie/${movieId}`);
+        } else {
+          searchError.textContent =
+            'Please log in to view movie details, add movies to your watchlist, and read reviews.';
+        }
       });
     });
   } catch (err) {
     searchError.textContent = 'Search failed. Try again!';
   }
+});
+
+searchField.addEventListener('input', () => {
+  searchField.classList.remove('is-invalid');
 });

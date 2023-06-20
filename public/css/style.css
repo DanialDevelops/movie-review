@@ -67,6 +67,7 @@ h1:hover,
   background-color: var(--red-header);
 }
 
-.dropdown-menu {
+.dropdown-menu,
+.modal-body {
   background-color: var(--green);
 }
