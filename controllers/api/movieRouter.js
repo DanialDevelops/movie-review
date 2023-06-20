@@ -20,18 +20,12 @@ router.get('/search/:movie', async (req, res) => {
           where: {
             imdb_id: movie.id,
           },
-          attributes: ['id', 'rating', 'content', 'createdAt', 'updatedAt'],
-          include: {
-            model: User,
-            attributes: ['id', 'username'],
-          },
+          attributes: ['rating'],
         });
         if (reviews.length) {
           movie.avgRating = getAvgRating(reviews).toFixed(1);
         }
         movie.reviewsCount = reviews.length;
-        movie.reviews = reviews;
-
         return movie;
       })
     );
@@ -41,7 +35,7 @@ router.get('/search/:movie', async (req, res) => {
     res
       .status(500)
       .json({ message: 'Internal server error. Could not get movies.' });
-    throw new Error(err);
+    console.error(err);
   }
 });
 
@@ -75,7 +69,17 @@ router.get('/:id', async (req, res) => {
     res
       .status(500)
       .json({ message: 'Internal server error. Could not get movie.' });
-    throw new Error(err);
+    console.error(err);
+  }
+});
+
+router.post('/session', async (req, res) => {
+  try {
+    req.session.selectedMovie = req.body;
+    res.status(200).json(req.session.selectedMovie);
+  } catch (err) {
+    res.status(500).end();
+    console.error(err);
   }
 });
 

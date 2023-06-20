@@ -12,13 +12,13 @@ const hbs = exphbs.create({});
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 300000,
+    maxAge: 1000 * 60 * 60 * 2, // 2 hours
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
   },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store: new SequelizeStore({
     db: sequelize,
   }),
@@ -37,8 +37,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
-
-
 
 async function start() {
   await sequelize.sync({ force: false });

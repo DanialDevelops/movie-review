@@ -41,13 +41,6 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  // Request body should be
-  // {
-  //  "content": "This movie was awesome!"
-  //  "rating": 1,
-  //  "imdb_id": 1,
-  //  "user_id": 1
-  // }
   try {
     const review = await Review.create(req.body);
     res.status(201).json(review);
