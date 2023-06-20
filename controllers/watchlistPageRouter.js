@@ -11,10 +11,10 @@ router.get('/', withAuth, async (req, res) => {
       where: {
         user_id: currentUser,
       },
-      //   include: {
-      //     model: Movie,
-      //     attributes: [],
-      //   },
+      include: {
+        model: Movie,
+        attributes: [],
+      },
     });
     const watchlist = watchlistData.map((watchlist) =>
       watchlist.get({ plain: true })

@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { Review, User, Movie } = require('../models');
+const { Review, User } = require('../models');
 const withAuth = require('../utils/auth');
+const { getMovie } = require('../utils/moviesDb');
 
 // -> /
 
@@ -14,22 +15,33 @@ router.get('/signup', (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Review }],
+      attributes: {
+        exclude: ['id', 'password'],
+      },
+      include: [
+        {
+          model: Review,
+          attributes: ['imdb_id', 'content', 'rating', 'createdAt'],
+        },
+      ],
     });
 
     const user = userData.get({ plain: true });
-    const movies = [
-      { movie: 'The Matrix', rating: 5 },
-      { movie: 'The Matrix Reloaded', rating: 4 },
-      { movie: 'The Matrix Revolutions', rating: 3 },
-    ];
+    const reviews = await Promise.all(
+      user.reviews.map(async (review) => {
+        const movieData = await getMovie(review.imdb_id);
+        if (movieData) review.title = movieData.title;
+        return review;
+      })
+    );
+    console.log(reviews);
     res.render('profile', {
       user,
-      logged_in: true,
-      movies,
+      logged_in: req.session.logged_in,
+      reviews,
     });
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });

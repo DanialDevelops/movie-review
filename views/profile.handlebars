@@ -1,40 +1,27 @@
-<div class='container'>
-  <div class='row'>
-    <!-- User Profile Card -->
-    <div class='col-12 col-md-6 mb-3'>
-
-      <div class='card profile-card p-2'>
-        <h2>Profile</h2>
-        <hr />
-        <h4>Username: <span>{{user.username}}</span></h4>
-        <h4>Email: <span>{{user.email}}</span></h4>
-        <h4>Password: <span>{{user.password}}</span></h4>
-        <!-- Not a good practice! -->
-      </div>
-    </div>
-
-    <!-- User Watchlist Card -->
-    <div class='col-12 col-md-6'>
-      <div class='card profile-card p-2'>
-        <h2>Watchlist</h2>
-        <hr />
-        {{#each watchlist}}
-          <h4>{{this}}</h4>
-        {{/each}}
-      </div>
-    </div>
-  </div>
-
-  <!-- User Movie Reviews -->
-  <div class='row'>
-    <div class='card col-12 profile-card p-2'>
-      <h2>Movie Reviews</h2>
-      {{#each movies}}
-        <div class='card mb-3'>
-          <h4>{{title}}</h4>
-          <p>{{review}}</p>
+<div class='container d-flex flex-column align-items-center'>
+<!-- User Profile Card -->
+<div class='col-12'>
+  <h2>Profile</h2>
+  <div class='card my-4 col-12'>
+      <div class='card-body'>
+        <div class='d-flex justify-content-between'>
+          <h4 class='card-title h1'>{{user.username}}</h4>
+          <h5 class='h1'><span>{{user.email}}</span></h5>
         </div>
-      {{/each}}
+        <p class='card-text'>{{review.content}}</p>
+      </div>
     </div>
-  </div>
+  <h2>Reviews</h2>
+  {{#each reviews as |review|}}
+    <div class='card my-4 col-12 review-card'>
+      <div class='card-body'>
+        <div class='d-flex justify-content-between'>
+          <h4 class='card-title'>{{review.title}}</h4>
+          <h5 class='h1'>{{review.rating}} <span>/ 5</span></h5>
+        </div>
+        <p class='card-text'>{{review.content}}</p>
+        <small>Reviewed on {{formatTimestamp review.createdAt}}</small>
+      </div>
+    </div>
+  {{/each}}
 </div>
