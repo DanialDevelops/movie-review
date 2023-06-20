@@ -41,30 +41,32 @@ searchForm.addEventListener('submit', async (e) => {
       movieCard.setAttribute('data-id', movie.id);
       movieCard.classList.add(
         'card',
-        'col-3',
+        'col-5',
         'm-1',
         'd-flex',
         'flex-column',
         'justify-content-between',
+        'align-items-center',
         'movie-card'
       );
 
       let cardContent = `
-        <img class='card-img-top' src='${movie.imageUrl}' alt='${movie.title}' />
-        <div class='card-body'>
+        <img class='card-img-top img-thumbnail'  style='height: 420' src='${movie.imageUrl}' alt='${movie.title}' />
+        <div class='card-body text-center'>
           <h5 class='card-title'>${movie.title}</h5>
       `;
       if (movie.avgRating) {
-        cardContent += `<p class="card-text">Average rating: ${movie.avgRating}</p>`;
+        cardContent += `<p class="card-text"><span class='detail'>Average rating:</span> ${movie.avgRating}</p>`;
       }
-      cardContent += `<p class="card-text">${movie.reviewsCount} reviews</p>
+      cardContent += `<p class="card-text">${movie.reviewsCount} <span class='detail'>reviews</span></p>
         </div>
       `;
       movieCard.innerHTML = cardContent;
 
       watchlistButton.textContent = 'Add to Watchlist';
-
+      watchlistButton.classList.add('btn', 'btn-success', 'mb-3');
       movieCard.appendChild(watchlistButton);
+
       searchResults.appendChild(movieCard);
       watchlistButton.addEventListener('click', async (e) => {
         e.preventDefault();
@@ -72,7 +74,7 @@ searchForm.addEventListener('submit', async (e) => {
       });
       movieCard.addEventListener('click', async (e) => {
         e.preventDefault();
-        // Put selected movie in sessionStorage so we don't have to make another API call.
+        // Put selected movie in session storage so we don't have to make another API call.
         addMovieToSession(movie);
 
         const movieId = e.currentTarget.getAttribute('data-id');

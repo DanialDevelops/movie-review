@@ -1,11 +1,11 @@
 :root {
   --green: rgb(185, 197, 91);
   --red-body: #9d3131;
-  --red-header: #a93a3ab0;
+  --red-header: #a93a3ad2;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   margin: 0;
   padding: 0;
   background-color: var(--red-body);
@@ -23,7 +23,15 @@ header h1 {
   margin: 0;
   display: inline;
   font-family: Kablammo, cursive;
-  color: white
+  color: white;
+}
+
+img {
+  object-fit: cover;
+}
+
+span {
+  color: var(--green);
 }
 
 .btn-link {
@@ -45,4 +53,12 @@ h1:hover,
 
 .error-msg {
   color: pink;
+}
+
+.card-text {
+  color: var(--red-body);
+}
+
+.detail {
+  color: var(--red-header)
 }
