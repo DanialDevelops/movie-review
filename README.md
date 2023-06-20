@@ -1,7 +1,7 @@
 # Movie-reviews
 
 ## Description
-This is a simple movie review app that allows users to add movies and review them. It also allows users to view other users' reviews and ratings.
+This is a simple movie review app that allows users to add movies and review them. It also allows users to have the ability to view other users' reviews and ratings.
 Some of the functionalities include:
 * Adding a movie to your own watchlist
 
