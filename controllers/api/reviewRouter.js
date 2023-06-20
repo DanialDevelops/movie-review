@@ -23,26 +23,14 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET review by id
-router.get('/:id', async (req, res) => {
-  try {
-    const review = await Review.findByPk(req.params.id);
-    if (!review) {
-      res.status(404).json({ message: 'Review not found.' });
-      return;
-    }
-    res.json(review);
-  } catch (err) {
-    console.error(err);
-    res
-      .status(500)
-      .json({ message: 'Internal server error. Could not GET review by id.' });
-  }
-});
-
 router.post('/', async (req, res) => {
   try {
-    const review = await Review.create(req.body);
+    const review = await Review.create({
+      imdb_id: req.body.imdb_id,
+      content: req.body.content,
+      rating: req.body.rating,
+      user_id: req.session.user_id,
+    });
     res.status(201).json(review);
   } catch (err) {
     console.error(err);
