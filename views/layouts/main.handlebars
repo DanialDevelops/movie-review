@@ -5,7 +5,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
     <title>Spoiled Tomatillos | Movie Reviews</title>
+    <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
     <link rel='icon' href='/images/favicon.ico' type='image/png' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Kablammo&display=swap'
+      rel='stylesheet'
+    />
     <link rel='shortcut icon' href='/images/favicon.ico' type='image/png' />
     <link
       href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css'
@@ -13,55 +20,43 @@
       integrity='sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM'
       crossorigin='anonymous'
     />
-    <script
-      src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'
-      integrity='sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz'
-      crossorigin='anonymous'
-    ></script>
     <link rel='stylesheet' href='/css/style.css' />
   </head>
 
   <body>
-    <div class='flex-column justify-space-around'>
 
-      <header>
-        <!-- Image and text -->
-        <nav class='d-flex justify-content-between p-2 container'>
-          <div class='d-inline-block'>
-            <a href='/' class='navbar-brand'>
-              <img
-                src='/images/tomatillo.png'
-                alt='Green tomatillo on vine'
-                class='d-inline-block align-top'
-                width='50'
-                height='50'
-              />
-              <h1>Spoiled Tomatillos</h1>
-            </a>
-          </div>
-          <div class='d-inline-block'>
-            {{#if logged_in}}
-              <a href='/profile'>profile</a>
-              |
-              <button class='no-button' id='logout'>logout</button>
-            {{else}}
-              <a href='/login'>login</a>
-            {{/if}}
-            {{#if logged_in}}
-              <button class='no-button'>
-                watchlist
-              </button>
-            {{/if}}
-          </div>
-        </nav>
-      </header>
-      <main class='container container-fluid mt-5'>
-        {{{body}}}
-      </main>
-      <footer>
+    <header>
+      <!-- Image and text -->
+      <div class='container d-flex justify-content-center p-4'>
+        <a href='/' class='navbar-brand'>
+          <img
+            src='/images/tomatillo.png'
+            alt='Green tomatillo on vine'
+            class='d-inline-block align-top mx-4'
+            width='80'
+            height='80'
+          />
+          <h1>Spoiled Tomatillos</h1>
+        </a>
+      </div>
+      <nav id='navbar' class='d-flex justify-content-around p-2 container'>
+        <div>
+          {{#if logged_in}}
+            <a class='btn btn-link' href='/profile'>profile</a>
+            <button class='btn btn-link'>
+              watchlist
+            </button>
+            <button class='btn btn-link' id='logout'>logout</button>
+          {{else}}
+            <a class='btn btn-link' href='/login'>login</a>
+          {{/if}}
 
-      </footer>
-    </div>
+        </div>
+      </nav>
+    </header>
+    <main class='container container-fluid mt-5 col-6'>
+      {{{body}}}
+    </main>
 
     {{#if logged_in}}
       <script src='/js/logout.js'></script>

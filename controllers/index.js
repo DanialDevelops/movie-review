@@ -1,15 +1,24 @@
-const routes = require('express').Router();
+const router = require('express').Router();
 
-const homeRoutes = require('./homeRouter');
+const userRoutes = require('./userRouter');
 const movieRoutes = require('./moviePageRouter');
 const apiRoutes = require('./api');
 
-routes.get('/', (req, res) => {
-  res.render('home');
+// Homepage.
+router.get('/', async (req, res) => {
+  try {
+    res.render('home', {
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-routes.use('/', homeRoutes);
-routes.use('/', movieRoutes);
-routes.use('/api', apiRoutes);
+// HTML routes.
+router.use('/', userRoutes);
+router.use('/movie', movieRoutes);
 
-module.exports = routes;
+router.use('/api', apiRoutes);
+
+module.exports = router;
