@@ -7,9 +7,13 @@ const { getAvgRating } = require('../utils/helpers.js');
 // -> /movie
 
 router.get('/:id', withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+    res.status(401).end();
+    return;
+  }
   try {
     let selectedMovie;
-    if (req.session.selectedMovie.id !== req.params.id) {
+    if (!req.session.selectedMovie) {
       selectedMovie = await getMovie(req.params.id);
 
       if (!selectedMovie) {
